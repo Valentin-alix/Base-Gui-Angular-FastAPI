@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { TestWebsocketComponent } from './components/test-websocket/test-websocket.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,8 @@ import { TestWebsocketComponent } from './components/test-websocket/test-websock
   imports: [
     CommonModule,
     RouterOutlet,
-    TestWebsocketComponent
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

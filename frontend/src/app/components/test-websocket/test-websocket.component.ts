@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WebSocketService } from '../../services/web-socket.service';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-test-websocket',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule],
   templateUrl: './test-websocket.component.html',
   styleUrl: './test-websocket.component.css',
-  providers: [WebSocketService]
 })
 export class TestWebsocketComponent {
   receivedMessages: string[] = [];
 
-  constructor(private webSocketService: WebSocketService){}
+  constructor(private webSocketService: WebSocketService) { }
 
   ngOnInit(): void {
     this.webSocketService.connect();
