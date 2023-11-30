@@ -19,20 +19,20 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './test-websocket.component.css',
 })
 export class TestWebsocketComponent {
-  receivedMessages: string[] = [];
+  receivedMessages: Array<{ message: string }> = [];
 
   constructor(private webSocketService: WebSocketService) { }
 
   ngOnInit(): void {
     this.webSocketService.connect();
-    this.webSocketService.messageReceived.subscribe((message: string) => {
+    this.webSocketService.messageReceived.subscribe((message: { message: string }) => {
       this.receivedMessages.push(message);
     });
   }
 
   sendMessage(): void {
     const message = 'Hello, WebSocket!';
-    this.webSocketService.sendMessage(message);
+    this.webSocketService.connection$?.next({ message: message });
   }
 
 }

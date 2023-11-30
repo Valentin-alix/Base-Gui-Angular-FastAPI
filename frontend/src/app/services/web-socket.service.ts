@@ -1,43 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, ReplaySubject, Subject, } from 'rxjs';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebSocketService {
-  messageReceived: Subject<string> = new Subject<string>();
+  apiUrl = environment.backendUrl
+  connection$?: WebSocketSubject<any>;
 
-  private socket!: WebSocket
+  messageReceived = new Subject<{ message: string }>();
 
   constructor() { }
 
-  connect(): void {
-    this.socket = new WebSocket('ws://localhost:8000/ws');
-
-    this.socket.onopen = () => {
-      console.log('WebSocket connection established.');
-    };
-
-    this.socket.onmessage = (event) => {
-      const message = event.data;
-      console.log('Received message:', message);
-      this.messageReceived.next(message);
-    };
-
-    this.socket.onclose = (event) => {
-      console.log('WebSocket connection closed:', event);
-    };
-
-    this.socket.onerror = (error) => {
-      console.error('WebSocket error:', error);
-    };
-  }
-
-  sendMessage(message: string): void {
-    this.socket.send(message);
-  }
-
-  closeConnection(): void {
-    this.socket.close();
+  connect(): Observable<any> {
+    if (this.connection$ !== undefined) {
+      return this.connection$
+    }
+    else {
+      this.connection$ = webSocket(this.apiUrl.replace(/^http/, 'ws') + '/ws');
+      this.connection$.subscribe((msg) => this.messageReceived.next(msg))
+      return this.connection$
+    }
   }
 }
