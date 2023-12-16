@@ -1,8 +1,11 @@
-<h1>Angular App</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/test-web-socket" routerLinkActive="active" ariaCurrentWhenActive="page">First Component</a></li>
-    <li><a routerLink="/test-routes" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component</a></li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
+<mat-sidenav-container autosize>
+  <mat-sidenav mode="side" opened="true">
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-toolbar></app-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

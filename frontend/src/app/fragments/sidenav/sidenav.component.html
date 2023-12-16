@@ -1,0 +1,7 @@
+<div class="d-flex-column justify-content-center">
+    <a *ngFor="let link of links" mat-button [routerLink]="link.link" routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{exact:true}">
+
+        <mat-icon class="m-0 p-0">{{link.icon}}</mat-icon>
+    </a>
+</div>

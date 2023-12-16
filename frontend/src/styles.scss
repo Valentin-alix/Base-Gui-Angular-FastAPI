@@ -1,0 +1,249 @@
+@import '@angular/material/prebuilt-themes/purple-green.css';
+
+html,
+body,
+app-root {
+    overflow: hidden !important;
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+$spacer: 4;
+$sides: (top, bottom, left, right);
+
+@for $i from 0 through 20 {
+    .m-#{$i * $spacer} {
+        margin: #{$i * $spacer}px !important;
+    }
+
+    .p-#{$i * $spacer} {
+        padding: #{$i * $spacer}px !important;
+    }
+
+    .g-#{$i * $spacer} {
+        gap: #{$i * $spacer}px !important;
+    }
+
+    @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}-#{$i * $spacer} {
+            margin-#{$side}: #{$i * $spacer}px !important;
+        }
+
+        .p#{str-slice($side, 0, 1)}-#{$i * $spacer} {
+            padding-#{$side}: #{$i * $spacer}px !important;
+        }
+    }
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-inline {
+    display: inline-block !important;
+}
+
+.d-flex-column {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.align-center {
+    align-items: center !important;
+    align-content: center !important;
+}
+
+.align-start {
+    align-items: start !important;
+    align-content: start !important;
+}
+
+.align-self-stretch {
+    align-self: stretch !important;
+}
+
+.align-stretch {
+    align-items: stretch !important;
+}
+
+.align-end {
+    align-items: end;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+.justify-content-flex-end {
+    justify-content: flex-end;
+}
+
+.justify-content-start {
+    justify-content: start;
+}
+
+.justify-content-around {
+    justify-content: space-around !important;
+}
+
+.justify-content-evenly {
+    justify-content: space-evenly !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.fw-b {
+    font-weight: bold !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.no-decoration {
+    text-decoration: none !important;
+}
+
+.pointer-cursor {
+    cursor: pointer !important;
+}
+
+.disable-click {
+    pointer-events: none !important;
+    cursor: default !important;
+}
+
+.enable-click {
+    pointer-events: all !important;
+    cursor: pointer !important;
+}
+
+.pos-sticky {
+    position: sticky !important;
+}
+
+.pos-abs {
+    position: absolute !important;
+}
+
+.pos-rel {
+    position: relative !important;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.break-word {
+    overflow-wrap: break-word !important;
+}
+
+.pre-line {
+    white-space: pre-line;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-grow {
+    flex-grow: 1 !important;
+}
+
+.flex-shrink-1 {
+    flex-shrink: 1 !important;
+}
+
+.over-scroll {
+    overflow: scroll !important;
+}
+
+.over-hidden {
+    overflow: hidden !important;
+}
+
+.over-visible {
+    overflow: visible !important;
+}
+
+.over-auto {
+    overflow: auto !important;
+}
+
+.text-elipsis {
+    text-overflow: ellipsis !important;
+}
+
+.enable-events {
+    pointer-events: auto !important;
+}
+
+.hover-darkenize:hover {
+    filter: brightness(90%) !important;
+}
+
+.spinner {
+    position: relative;
+}
+
+.spinner::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+.mat-mdc-tab-body-content { 
+    overflow: hidden !important;
+}
+
+.f-p-0 .mat-form-field-wrapper {
+    padding: 0px !important;
+}
+
+.f-m-0 .mat-form-field-wrapper {
+    margin-bottom: 0px !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+}
