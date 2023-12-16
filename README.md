@@ -1,6 +1,5 @@
-environments:
-    - node 20.10.0
-    - 
+## Description:
 
-Base project with electron with angular for desktop application
-communicating with fast-api by socket io
+This project is a template for a desktop application with :
+- Angular
+- FastAPI
