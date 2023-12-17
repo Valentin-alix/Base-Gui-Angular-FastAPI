@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Before start",
+            "type": "shell",
+            "command": "bash ./scripts/before_start.sh"
+        }
+    ]
+  }
+  
