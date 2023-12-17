@@ -1,8 +1,8 @@
 version: '3'
 services:
-  postgres-service:
+  postgres-service-base:
     image: postgres:16-alpine
-    container_name: postgres-container
+    container_name: postgres-container-base
     restart: always
     ports:
       - '5432:5432'

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 ENV_PATH=".venv/"
 if [ ! -d $ENV_PATH ];
 then
@@ -11,7 +9,7 @@ fi
 
 source .venv/Scripts/activate
 
-docker-compose stop
+docker stop $(docker ps -a -q) 
 
 docker compose up -d
 

@@ -2,7 +2,7 @@
 
 source .venv/Scripts/activate
 
-docker-compose stop
+docker stop $(docker ps -a -q) 
 
 docker compose up -d
 
