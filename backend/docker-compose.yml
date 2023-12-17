@@ -2,7 +2,7 @@ version: '3'
 services:
   postgres-service:
     image: postgres:16-alpine
-    container_name: ${DB_CONTAINER_NAME}
+    container_name: postgres-container
     restart: always
     ports:
       - '5432:5432'
@@ -12,4 +12,4 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - ./data/:/var/lib/postgres/data
+      - ./data/:/var/lib/postgres/data/

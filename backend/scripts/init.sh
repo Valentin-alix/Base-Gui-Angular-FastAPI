@@ -11,6 +11,8 @@ fi
 
 source .venv/Scripts/activate
 
+docker-compose stop
+
 docker compose up -d
 
 python -m pip install --upgrade pip
